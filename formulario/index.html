@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de currículos</title>
+
+    <script>
+        function formatarCPF(cpf) {
+            cpf = cpf.replace(/\D/g, '');
+            cpf = cpf.substring(0, 11);
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            return cpf;
+        }
+        function aoInserirCPF(evento) {
+            const entrada = evento.target;
+            entrada.value = formatarCPF(entrada.value);
+        }
+    </script>
+</head>
+<body>
+    <div class="tudo">
+        <h1 class="titulo-curriculo">Currículo</h1>
+        <section class="pessoal"> 
+            <div class="input-group">
+                <input type="text" placeholder="Nome da escola" class="input-escola">
+                <input type="text" placeholder="CPF" class="input-cpf" id="cpf" oninput="aoInserirCPF(event)" maxlength="14">
+            </div>
+            <h2>Pessoal</h2>
+            <div class="input-group">
+                <input type="text" id="nome-completo" placeholder="Nome completo" class="input-nome">
+                <input type="date" class="input-data" min="1900-01-01" max="2100-12-31">
+            </div>
+            <div class="select-group">
+                <div class="select-item">
+                    <label for="nacionalidade">Nacionalidade</label>
+                    <select name="nacionalidade">
+                        <option value="N/A">N/A</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Dinamarca">Dinamarca</option>
+                        <option value="Butão">Butão</option>
+                        <option value="Suecia">Suécia</option>
+                    </select>
+                </div>
+                <div class="select-item">
+                    <label for="estado">Estado</label>
+                    <select name="estado">
+                        <option value="N/A">N/A</option>
+                        <option value="Tocantins">Tocantins</option>
+                        <option value="Ceará">Ceará</option>
+                        <option value="Rio Grande Do Norte">Rio Grande Do Norte</option>
+                        <option value="Amazonas">Amazonas</option>
+                    </select>
+                </div>
+                <div class="select-item">
+                    <label for="cidade">Cidade</label>
+                    <select name="cidade">
+                        <option value="N/A">N/A</option>
+                        <option value="Icapui">Icapuí</option>
+                        <option value="Arraias">Arraias</option>
+                        <option value="Natal">Natal</option>
+                        <option value="Manaus">Manaus</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <div class="sexo">
+            <input type="radio" id="Feminino" name="genero" value="Feminino">
+            <label for="Feminino">FEMININO</label>
+            <input type="radio" id="Masculino" name="genero" value="Masculino">
+            <label for="Masculino">MASCULINO</label>
+            <input type="radio" name="genero" id="Outro" value="Outro">
+            <label for="Outro">OUTRO</label>
+        </div>
+        <div class="gerar">
+            <input type="submit" value="GERAR">
+        </div>
+    </div>
+</body>
+</html>
