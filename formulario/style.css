@@ -14,7 +14,7 @@ body {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     transform: scale(0.98);
     transition: transform 0.3s ease-in-out;
@@ -136,4 +136,32 @@ input[type="radio"]:checked + label:before {
 .gerar input:hover {
     background: #2e7d32;
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .tudo {
+        padding: 20px;
+        width: 90%;
+    }
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .input-group input, .select-group select {
+        width: 100%;
+    }
+    .select-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .sexo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .gerar input {
+        width: 100%;
+    }
+    h1, h2 {
+        font-size: 12pt;
+    }
 }
